@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import '@angular/cdk/overlay-prebuilt.css';
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+    tertiary: mat.$violet-palette,
+  ),
+));
+
+html {
+  @include mat.all-component-themes($theme);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #fafafa;
+}
+
+.cdk-overlay-container {
+  z-index: 1100 !important;
+  pointer-events: none !important;
+}
+
+.cdk-global-overlay-wrapper {
+  pointer-events: none !important;
+  padding-top: 72px !important;
+}
+
+.cdk-overlay-pane {
+  pointer-events: auto !important;
+}
