@@ -1,0 +1,24 @@
+<div class="photo-grid">
+  @for (photo of photos(); track photo.id) {
+    <mat-card class="photo-card" (click)="addToFavorites(photo)">
+      <img
+        mat-card-image
+        [src]="getImageUrl(photo)"
+        [alt]="'Photo by ' + photo.author"
+        loading="lazy"
+      />
+      <mat-card-content>
+        <p>{{ photo.author }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>
+
+@if (loading()) {
+  <div class="loader-container">
+    <mat-spinner diameter="48"></mat-spinner>
+    <p>Loading photos...</p>
+  </div>
+}
+
+<div #scrollSentinel class="scroll-sentinel"></div>

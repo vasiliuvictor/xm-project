@@ -1,0 +1,28 @@
+@if (!loading() && photo(); as p) {
+  <div class="detail-container">
+    <div class="photo-wrapper">
+      <img
+        [src]="fullImageUrl()"
+        [alt]="'Photo by ' + p.author"
+      />
+    </div>
+
+    <div class="actions">
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="removeFromFavorites()"
+      >
+        Remove from favorites
+      </button>
+    </div>
+
+    <div class="photo-info">
+      <p class="author">Photo by <strong>{{ p.author }}</strong></p>
+    </div>
+  </div>
+} @else if (loading()) {
+  <div class="loader-container">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+}

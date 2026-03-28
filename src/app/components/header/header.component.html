@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <div class="toolbar-content">
+    <a class="brand" href="https://github.com/vasiliuvictor" target="_blank" rel="noopener">
+      <span class="brand-name">PhotoStream</span>
+      <span class="brand-author">crafted by Andrei-Victor Vasiliu</span>
+    </a>
+
+    <div class="nav-buttons">
+      <a
+        mat-raised-button
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Photos
+      </a>
+      <a
+        mat-raised-button
+        routerLink="/favorites"
+        routerLinkActive="active-link"
+      >
+        Favorites
+      </a>
+    </div>
+  </div>
+</mat-toolbar>

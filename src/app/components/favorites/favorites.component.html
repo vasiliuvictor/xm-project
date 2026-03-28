@@ -1,0 +1,23 @@
+@if (favorites().length > 0) {
+  <div class="photo-grid">
+    @for (photo of favorites(); track photo.id) {
+      <mat-card class="photo-card" [routerLink]="['/photos', photo.id]">
+        <img
+          mat-card-image
+          [src]="getImageUrl(photo)"
+          [alt]="'Photo by ' + photo.author"
+          loading="lazy"
+        />
+        <mat-card-content>
+          <p>{{ photo.author }}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+} @else {
+  <div class="empty-state">
+    <mat-icon>favorite_border</mat-icon>
+    <h2>No favorites yet</h2>
+    <p>Click on photos in the stream to add them to your favorites.</p>
+  </div>
+}
